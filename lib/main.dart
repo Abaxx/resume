@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        backgroundColor: Colors.white,
       ),
       home: const MyHomePage(title: 'My Resume'),
     );
@@ -218,9 +219,15 @@ class _MyHomePageState extends State<MyHomePage> {
           leading: BackButton(),
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title),
-        ),
+          title: Text(widget.title),),
         body: portrait(),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: (){
+          },
+          label: const Text('Switch Theme'),
+          backgroundColor: Colors.deepPurple,
+          //icon: const Icon(Icons.brightness_high),
+        ), // This trailing comma makes a
       );
     }else {
       return Scaffold(
@@ -231,18 +238,15 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: SingleChildScrollView(child:landscape(),),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: (){
+          },
+          label: const Text('Switch Theme'),
+          backgroundColor: Colors.deepPurple,
+          //icon: const Icon(Icons.brightness_high),
+        ), // This trailing comma makes auto-formatting nicer for build methods.
      );
     }
   }
 }
 
-
-/*
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}*/
