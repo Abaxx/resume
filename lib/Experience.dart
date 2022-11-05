@@ -7,7 +7,6 @@ class Experience extends StatelessWidget {
   portrait() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
@@ -15,18 +14,18 @@ class Experience extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 25),),
           SizedBox(height: 10,),
-          Text('03/2021 - 06/2021', style: TextStyle(fontSize: 20),),
+          Text('03/2021 - 06/2021', style: TextStyle(fontSize: 18),),
           SizedBox(height: 5,),
           Text(
             'ZURI INGRESSIVE TRAINING; collaborated on bloodfinder app development.',
             style: TextStyle(fontSize: 15),),
           SizedBox(height: 10,),
-          Text('08/2021 - 11/2021', style: TextStyle(fontSize: 20),),
+          Text('08/2021 - 11/2021', style: TextStyle(fontSize: 18),),
           SizedBox(height: 5,),
           Text('HNG8 intern; collaborated on zuri chart app development.',
             style: TextStyle(fontSize: 15),),
           SizedBox(height: 10,),
-          Text('05/2022 - current', style: TextStyle(fontSize: 20),),
+          Text('05/2022 - current', style: TextStyle(fontSize: 18),),
           SizedBox(height: 5,),
           Text('Intership at Flux Technology.',
             style: TextStyle(fontSize: 15),),
@@ -38,7 +37,6 @@ class Experience extends StatelessWidget {
   landscape() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
-      color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [

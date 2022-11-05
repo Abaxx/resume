@@ -7,7 +7,6 @@ class AboutMe extends StatelessWidget {
   portrait() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
@@ -24,7 +23,6 @@ class AboutMe extends StatelessWidget {
   landscape() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
-      color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [

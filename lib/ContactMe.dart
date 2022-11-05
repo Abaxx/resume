@@ -8,7 +8,6 @@ class ContactMe extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
@@ -22,9 +21,9 @@ class ContactMe extends StatelessWidget {
           SizedBox(height: 5,),
           Text('Github: github.com/Abaxx?tab=repositories',),
           SizedBox(height: 5,),
-          Text('Twitter: @quantum2030',),
-          SizedBox(height: 5,),
           Text('Linkedin: linkedin.com/in/akande-abass',),
+          SizedBox(height: 5,),
+          Text('Twitter: @quantum2030',),
 
         ],
       ),
@@ -35,7 +34,6 @@ class ContactMe extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
-      color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
@@ -49,9 +47,9 @@ class ContactMe extends StatelessWidget {
           SizedBox(height: 5,),
           Text('Github: github.com/Abaxx?tab=repositories',),
           SizedBox(height: 5,),
-          Text('Twitter: @quantum2030',),
-          SizedBox(height: 5,),
           Text('Linkedin: linkedin.com/in/akande-abass',),
+          SizedBox(height: 5,),
+          Text('Twitter: @quantum2030',),
         ],
       ),
     );
