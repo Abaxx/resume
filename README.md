@@ -11,13 +11,13 @@ There is one asset folder which contained image.
 There is no external design, just simple one I made.
 
 ## Libraries
- I used Adaptive theme package for light and dark mode switching.
+ I used Adaptive theme package for light and dark mode switch.
  
 ## New features
-I would like to implement languages switching, if I have more time.
+I would like to implement languages switch, if I have more time.
 
 ## Challenges
 Dark mode switching was difficult for me initially, but I solved it with Adaptive theme package.
 
 ## APK Link
-https://appetize.io/app/ohpnp3wesqbuyjbqog3sr4vy4e?device=pixel4&osVersion=11.0&scale=75
+https://appetize.io/app/c5qffsykyl65thihy2wz7igbiy?device=pixel4&osVersion=11.0&scale=75
