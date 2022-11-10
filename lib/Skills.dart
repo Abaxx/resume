@@ -9,7 +9,7 @@ class CanDo extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
-          Text('What I can do for your company.', style: TextStyle(color: Colors.black,
+          Text('My Skills', style: TextStyle(color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 20),),
           SizedBox(height: 10,),
@@ -29,7 +29,7 @@ class CanDo extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
-          Text('What I can do', style: TextStyle(color: Colors.black,
+          Text('My Skills', style: TextStyle(color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 25),),
           SizedBox(height: 10,),

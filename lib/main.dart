@@ -2,7 +2,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:resume/AboutMe.dart';
-import 'package:resume/CanDo.dart';
+import 'package:resume/Skills.dart';
 import 'package:resume/Experience.dart';
 
 import 'ContactMe.dart';
@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
               minWidth: 100,
               height: 30,
               color: Colors.blue,
-              child: Text('What I can do',
+              child: Text('My Skills',
                 style: const TextStyle(
                     color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),),
             const SizedBox(height: 10,),
@@ -174,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
               minWidth: 100,
               height: 30,
               color: Colors.blue,
-              child: const Text('What I can do',
+              child: const Text('My Skills',
                 style: TextStyle(
                     color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),),
             const SizedBox(height: 10,),
