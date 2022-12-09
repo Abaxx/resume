@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:resume/AboutMe.dart';
 import 'package:resume/Skills.dart';
 import 'package:resume/Experience.dart';
-
 import 'ContactMe.dart';
 
 void main() {
@@ -62,6 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontSize: 25),),
+            const Text('Flutter App Developer', style: TextStyle(
+                color: Colors.black87,
+                fontSize: 15),),
             SizedBox(height: 10,),
             MaterialButton(onPressed: () {
               Navigator.of(context).push(
@@ -134,9 +136,12 @@ class _MyHomePageState extends State<MyHomePage> {
               'assets/images/abass.jpg', height: 200, width: 200,),
             const SizedBox(height: 5,),
             const Text('Akande Abass', style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontSize: 25),),
+            const Text('Flutter App Developer', style: TextStyle(
+                color: Colors.black87,
+                fontSize: 15),),
             const SizedBox(height: 10,),
             MaterialButton(onPressed: () {
               Navigator.of(context).push(
@@ -207,7 +212,6 @@ class _MyHomePageState extends State<MyHomePage> {
     if(MediaQuery.of(context).orientation == Orientation.portrait) {
       return Scaffold(
         appBar: AppBar(
-          leading: const BackButton(),
           actions: [IconButton(onPressed: (){
             AdaptiveTheme.of(context).toggleThemeMode();
           }, icon: const Icon(Icons.brightness_high_sharp))],
@@ -219,7 +223,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }else {
       return Scaffold(
         appBar: AppBar(
-          leading: const BackButton(),
           actions: [IconButton(onPressed: (){
             AdaptiveTheme.of(context).toggleThemeMode();
           }, icon: const Icon(Icons.brightness_high))],

@@ -14,7 +14,7 @@ class AboutMe extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 25),),
           SizedBox(height: 10,),
-          Text('I am graduate with B.sc in Physics from Obafemi Awolowo University, Nigeria. I have proven mathematics and programming skills, am seeking aposition as Flutter developer at your organization, to leverage organizational and programming skills to support your organization development.',),
+          Text('I am graduate with B.sc in Physics from Obafemi Awolowo University, Nigeria. I have proven mathematics and programming skills, am seeking a position as Flutter developer at your organization, to leverage organizational and programming skills to support your organization development.',),
         ],
       ),
     );
@@ -30,7 +30,7 @@ class AboutMe extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 25),),
           SizedBox(height: 10,),
-          Text('I am graduate with B.sc in Physics from Obafemim Awolowo University, Nigeria. I have proven mathematics and programming skills, am seeking aposition as Flutter developer at your organization, to leverage organizational and programming skills to support your organization development.',),
+          Text('I am graduate with B.sc in Physics from Obafemim Awolowo University, Nigeria. I have proven mathematics and programming skills, am seeking a position as Flutter developer at your organization, to leverage organizational and programming skills to support your organization development.',),
         ],
       ),
     );

@@ -20,4 +20,4 @@ I would like to implement languages switch, if I have more time.
 Dark mode switching was difficult for me initially, but I solved it with Adaptive theme package.
 
 ## APK Link
-https://appetize.io/app/c5qffsykyl65thihy2wz7igbiy?device=pixel4&osVersion=11.0&scale=75
+https://appetize.io/app/hwptwfako54nizhon7p7firpda?device=pixel4&osVersion=11.0&scale=75
