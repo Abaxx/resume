@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:resume/AboutMe.dart';
 import 'package:resume/Skills.dart';
 import 'package:resume/Experience.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'ContactMe.dart';
 
 void main() {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         theme: theme,
         darkTheme: darkTheme,
         debugShowCheckedModeBanner: false,
-         home: const MyHomePage(title: 'My Resume'),),
+         home: const MyHomePage(title: 'Resume'),),
     );
   }
 }
@@ -46,6 +47,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  var url = Uri.parse('https://github.com/Abaxx');
+
+  Future<void> _launchInWebView(Uri url) async {
+    if(!await launchUrl(url,
+      mode: LaunchMode.inAppWebView,
+    )){
+      throw Exception('Could not launch $url');
+    }
+  }
 
   portrait(){
     return Center(
@@ -65,57 +76,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.black87,
                 fontSize: 15),),
             SizedBox(height: 10,),
-            MaterialButton(onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => AboutMe()));
+            MaterialButton(
+              onPressed: () {
+                _launchInWebView(url);
             },
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10))
               ),
-              minWidth: 100,
+              minWidth: 150,
               height: 30,
               color: Colors.blue,
-              child: Text('About Me', style: const TextStyle(
-                  color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),),
-            SizedBox(height: 10,),
-            MaterialButton(onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => Experience()));
-            },
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))
-              ),
-              minWidth: 100,
-              height: 30,
-              color: Colors.blue,
-              child: const Text('Experience',
-                style: TextStyle(color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),),
-            const SizedBox(height: 10,),
-            MaterialButton(onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => CanDo()));
-            },
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))
-              ),
-              minWidth: 100,
-              height: 30,
-              color: Colors.blue,
-              child: Text('My Skills',
-                style: const TextStyle(
-                    color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),),
-            const SizedBox(height: 10,),
-            MaterialButton(onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ContactMe()));
-            },
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))
-              ),
-              minWidth: 100,
-              height: 30,
-              color: Colors.blue,
-              child: Text('Contact Me', style: const TextStyle(
+              child: const Text('Open GitHub', style: TextStyle(
                   color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),),
           ],
         ),
@@ -130,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
         width: MediaQuery.of(context).size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          
+
           children: [
             Image.asset(
               'assets/images/abass.jpg', height: 200, width: 200,),
@@ -138,64 +109,25 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text('Akande Abass', style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
-                fontSize: 25),),
+                fontSize: 25),
+            ),
             const Text('Flutter App Developer', style: TextStyle(
                 color: Colors.black87,
-                fontSize: 15),),
+                fontSize: 20),),
             const SizedBox(height: 10,),
-            MaterialButton(onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => AboutMe()));
+            MaterialButton(
+              onPressed: () {
+                _launchInWebView(url);
             },
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10))
               ),
-              minWidth: 100,
+              minWidth: 150,
               height: 30,
               color: Colors.blue,
-              child: const Text('About Me', style: TextStyle(
-                  color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),),
-            SizedBox(height: 10,),
-            MaterialButton(onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => Experience()));
-            },
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))
-              ),
-              minWidth: 100,
-              height: 30,
-              color: Colors.blue,
-              child: const Text('Experience',
-                style: TextStyle(color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),),
-            const SizedBox(height: 10,),
-            MaterialButton(onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => CanDo()));
-            },
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))
-              ),
-              minWidth: 100,
-              height: 30,
-              color: Colors.blue,
-              child: const Text('My Skills',
-                style: TextStyle(
-                    color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),),
-            const SizedBox(height: 10,),
-            MaterialButton(onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ContactMe()));
-            },
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))
-              ),
-              minWidth: 100,
-              height: 30,
-              color: Colors.blue,
-              child: const Text('Contact Me', style: TextStyle(
-                  color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),),
-
+              child: const Text('Open GitHub', style: TextStyle(
+                  color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),
+            ),
           ],
         ),
       ),
@@ -212,9 +144,11 @@ class _MyHomePageState extends State<MyHomePage> {
     if(MediaQuery.of(context).orientation == Orientation.portrait) {
       return Scaffold(
         appBar: AppBar(
-          actions: [IconButton(onPressed: (){
+          actions: [
+            IconButton(onPressed: (){
             AdaptiveTheme.of(context).toggleThemeMode();
-          }, icon: const Icon(Icons.brightness_high_sharp))],
+          },
+                icon: const Icon(Icons.brightness_high_sharp))],
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),),
