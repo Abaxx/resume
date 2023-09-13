@@ -1,11 +1,7 @@
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:resume/AboutMe.dart';
-import 'package:resume/Skills.dart';
-import 'package:resume/Experience.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'ContactMe.dart';
+import 'package:resume/Edit_CV.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,28 +13,28 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return AdaptiveTheme(
-        light: ThemeData(
-          brightness: Brightness.light,
-          primarySwatch: Colors.blue,
-        ),
-        dark: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.blue,
-        ),
-        initial: AdaptiveThemeMode.light,
-        builder: (theme,darkTheme)=> MaterialApp(
-          title: 'Flutter Demo',
-        theme: theme,
-        darkTheme: darkTheme,
-        debugShowCheckedModeBanner: false,
-         home: const MyHomePage(title: 'Resume'),),
-    );
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(title: ' My CV'),);
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  MyHomePage({Key? key,
+    required this.title,
+    this.fullName = 'Akande Abass',
+    this.slackUsername = 'Abax',
+    this.githubHandle = 'https://github.com/Abaxx',
+    this.personalBio = 'I am graduate of University of Lagos.',
+    this.experience = 'Mobile developer at flux technology for 2 years.'
+  }) : super(key: key);
+
+  String fullName;
+  String slackUsername;
+  String githubHandle;
+  String personalBio;
+  String experience;
 
   final String title;
 
@@ -48,120 +44,207 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  var url = Uri.parse('https://github.com/Abaxx');
+  //var url = Uri.parse('https://github.com/Abaxx');
 
-  Future<void> _launchInWebView(Uri url) async {
-    if(!await launchUrl(url,
-      mode: LaunchMode.inAppWebView,
-    )){
-      throw Exception('Could not launch $url');
-    }
-  }
-
-  portrait(){
+  Widget portrait(){
     return Center(
       child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 15),
         width: MediaQuery.of(context).size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              'assets/images/abass.jpg', height: 200, width: 200,),
-            SizedBox(height: 5,),
-            const Text('Akande Abass', style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 25),),
-            const Text('Flutter App Developer', style: TextStyle(
-                color: Colors.black87,
-                fontSize: 15),),
+            RichText(
+                text: TextSpan(
+                  children: [
+                    const TextSpan(text: "Full Name: ",style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15)),
+                    TextSpan(text: widget.fullName,style: TextStyle(color: Colors.black))
+                  ]
+                )),
             SizedBox(height: 10,),
-            MaterialButton(
-              onPressed: () {
-                _launchInWebView(url);
-            },
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))
+            RichText(
+                text: TextSpan(
+                    children: [
+                      const TextSpan(text: "Slack UserName: ",style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15)),
+                      TextSpan(text: widget.slackUsername,style: TextStyle(color: Colors.black))
+                    ]
+                )),
+            SizedBox(height: 10,),
+            RichText(
+                text: TextSpan(
+                    children: [
+                      const TextSpan(text: "GitHub Handle: ",style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15)),
+                      TextSpan(text: widget.githubHandle,style: TextStyle(color: Colors.black))
+                    ]
+                )),
+            const SizedBox(height: 10,),
+            RichText(
+                text: TextSpan(
+                    children: [
+                      const TextSpan(text: "Personal Bio: ",style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15)),
+                      TextSpan(text: widget.personalBio,style: TextStyle(color: Colors.black))
+                    ]
+                )),
+            const SizedBox(height: 10,),
+            RichText(
+                text: TextSpan(
+                    children: [
+                      const TextSpan(text: "Experience: ",style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15)),
+                      TextSpan(text: widget.experience,style: TextStyle(color: Colors.black))
+                    ]
+                )),
+            const SizedBox(height: 10,),
+            Center(
+              child: MaterialButton(
+                onPressed: () {
+                  Navigator.push(context,MaterialPageRoute(builder: (context) =>
+                      EditCV(
+                        fullName: widget.fullName,
+                        slackUsername: widget.slackUsername,
+                        githubHandle: widget.githubHandle,
+                        personalBio: widget.personalBio,
+                        experience: widget.experience,
+                      )
+                  ));
+              },
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10))
+                ),
+                minWidth: 150,
+                height: 30,
+                color: Colors.blue,
+                child: const Text('Edit', style: TextStyle(
+                    color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),
               ),
-              minWidth: 150,
-              height: 30,
-              color: Colors.blue,
-              child: const Text('Open GitHub', style: TextStyle(
-                  color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),),
+            ),
           ],
         ),
       ),
     );
   }
 
-  landscape(){
+  Widget landscape(){
     return Center(
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.all(15),
         width: MediaQuery.of(context).size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              'assets/images/abass.jpg', height: 200, width: 200,),
-            const SizedBox(height: 5,),
-            const Text('Akande Abass', style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 25),
-            ),
-            const Text('Flutter App Developer', style: TextStyle(
-                color: Colors.black87,
-                fontSize: 20),),
+            RichText(
+                text: TextSpan(
+                    children: [
+                      const TextSpan(text: "Full Name: ",style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15)),
+                      TextSpan(text: widget.fullName,style: TextStyle(color: Colors.black))
+                    ]
+                )),
+            SizedBox(height: 10,),
+            RichText(
+                text: TextSpan(
+                    children: [
+                      const TextSpan(text: "Slack UserName: ",style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15)),
+                      TextSpan(text: widget.slackUsername,style: TextStyle(color: Colors.black))
+                    ]
+                )),
+            SizedBox(height: 10,),
+            RichText(
+                text: TextSpan(
+                    children: [
+                      const TextSpan(text: "GitHub Handle: ",style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15)),
+                      TextSpan(text: widget.githubHandle,style: TextStyle(color: Colors.black))
+                    ]
+                )),
             const SizedBox(height: 10,),
-            MaterialButton(
-              onPressed: () {
-                _launchInWebView(url);
-            },
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10))
+            RichText(
+                text: TextSpan(
+                    children: [
+                      const TextSpan(text: "Personal Bio: ",style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15)),
+                      TextSpan(text: widget.personalBio,style: TextStyle(color: Colors.black))
+                    ]
+                )),
+            const SizedBox(height: 10,),
+            RichText(
+                text: TextSpan(
+                    children: [
+                      const TextSpan(text: "Experience: ",style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15)),
+                      TextSpan(text: widget.experience,style: TextStyle(color: Colors.black))
+                    ]
+                )),
+            const SizedBox(height: 10,),
+            Center(
+              child: MaterialButton(
+                onPressed: () {
+                  Navigator.push(context,MaterialPageRoute(builder: (context) =>
+                      EditCV(
+                        fullName: widget.fullName,
+                        slackUsername: widget.slackUsername,
+                        githubHandle: widget.githubHandle,
+                        personalBio: widget.personalBio,
+                        experience: widget.experience,
+                      )
+                  ));
+                },
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10))
+                ),
+                minWidth: 150,
+                height: 30,
+                color: Colors.blue,
+                child: const Text('Edit', style: TextStyle(
+                    color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),
               ),
-              minWidth: 150,
-              height: 30,
-              color: Colors.blue,
-              child: const Text('Open GitHub', style: TextStyle(
-                  color: Colors.white, fontSize: 18),textAlign: TextAlign.center,),
             ),
           ],
         ),
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     if(MediaQuery.of(context).orientation == Orientation.portrait) {
       return Scaffold(
         appBar: AppBar(
-          actions: [
-            IconButton(onPressed: (){
-            AdaptiveTheme.of(context).toggleThemeMode();
-          },
-                icon: const Icon(Icons.brightness_high_sharp))],
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
+          automaticallyImplyLeading: false,
           title: Text(widget.title),),
         body: portrait(),
       );
     }else {
       return Scaffold(
         appBar: AppBar(
-          actions: [IconButton(onPressed: (){
-            AdaptiveTheme.of(context).toggleThemeMode();
-          }, icon: const Icon(Icons.brightness_high))],
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
+          automaticallyImplyLeading: false,
           title: Text(widget.title),
         ),
         body: SingleChildScrollView(child:landscape(),),

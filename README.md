@@ -1,11 +1,10 @@
-# My Resume
+# My CV
 
-This App contain my Personal Details.
+This App is about my CV, which contain Full Name, Slack UserName, GitHub Handle, Personal Bio and Experience.
 
 ## Code base description
-Source code consist of 1 file main.dart, and contained 2 methods, namely portrait and landscape, they are responsible for 
+Source code consist of 2 files main.dart and EditCV.dart, each contained 2 methods, namely portrait and landscape, they are responsible for 
 portrait view and landscape view of mobile device.
-There is one asset folder which contained image.
 
 ## Design description
 There is no external design, just simple one I made.
