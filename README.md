@@ -10,4 +10,4 @@ portrait view and landscape view of mobile device.
 There is no external design, just simple one I made.
 
 ## APK Link
-https://appetize.io/app/7cdioocsoqfospvg4apigzqwau?device=pixel4&osVersion=11.0&scale=75
+https://appetize.io/app/32tu3oagdusnpawtbucqzreb5e?device=pixel4&osVersion=11.0&scale=75
